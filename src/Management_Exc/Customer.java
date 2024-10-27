@@ -1,7 +1,6 @@
 package Management_Exc;
 
 public class Customer extends Person {
-
     public Customer(String name, int age) {
         super(name, age);
     }
@@ -17,6 +16,15 @@ public class Customer extends Person {
      * @return the dialogue of the customer
      */
     public String speak(Employee e) {
-        return null;
+        if (e instanceof Developer && getAge() > e.getAge()) {
+            Developer d = (Developer) e;
+            if (d.getProjectManager() != null) {
+                return "Can I see your manager " + d.getProjectManager().getName() + "?";
+            } else {
+                return "Oh, hello, " + e.getName() + ". Can you assist me?";
+            }
+        } else {
+            return "Oh, hello, " + e.getName() + ". Can you assist me?";
+        }
     }
 }

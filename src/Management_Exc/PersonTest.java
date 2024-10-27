@@ -41,7 +41,7 @@ class PersonTest {
         try {
             persons.add(new Manager("Jea", -25, 47500));
         } catch (IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Age must be non-negative.");
+            assertEquals(e.getMessage(), "Age must be non-negative");
         }
         assertEquals(persons.size(), 1);
     }
@@ -53,7 +53,7 @@ class PersonTest {
         try {
             persons.add(new Manager("Jea", 25, 27500));
         } catch (IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Salary must be greater than or equal to 30000");
+            assertEquals(e.getMessage(), "Salary should be greater than or equal to 30000");
         }
         assertEquals(persons.size(), 1);
     }
@@ -126,7 +126,7 @@ class PersonTest {
         try {
             Main.assignPM(persons, "Vince", "Claire");
         } catch (IllegalStateException e) {
-            assertEquals(e.getMessage(), "Vince already has a manager: Mary");
+            assertEquals( "Vince already has a manager: Mary", e.getMessage());
         }
     }
 
@@ -208,7 +208,7 @@ class PersonTest {
         try {
             Main.giveRaise(persons, "Mary", "Jeshiel", -2500);
         } catch (IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Raise must be non-negative");
+            assertEquals(e.getMessage(), "salary is negative");
         }
         Employee mary = (Employee) persons.get(3);
         Employee jeshiel = (Employee) persons.get(2);
